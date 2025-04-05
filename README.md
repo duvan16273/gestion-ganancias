@@ -1,0 +1,2 @@
+# gestion-ganancias
+html,css
