@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Caficultores</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gestión de Ganancias para Caficultores</h1>
+            <p>Registra y controla tus cosechas diarias y ganancias</p>
+        </header>
+
+        <main>
+            <section class="form-section">
+                <h2>Registrar Nueva Cosecha</h2>
+                <form id="cosechaForm">
+                    <div class="form-group">
+                        <label for="semana">Semana:</label>
+                        <input type="week" id="semana" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="caficultor">Nombre del Caficultor:</label>
+                        <input type="text" id="caficultor" placeholder="Nombre completo" required>
+                    </div>
+                    
+                    <div class="daily-inputs">
+                        <h3>Kilos recolectados por día</h3>
+                        <div class="form-group daily-group">
+                            <label for="lunes">Lunes:</label>
+                            <input type="number" id="lunes" min="0" step="0.01" placeholder="0.00">
+                        </div>
+                        <div class="form-group daily-group">
+                            <label for="martes">Martes:</label>
+                            <input type="number" id="martes" min="0" step="0.01" placeholder="0.00">
+                        </div>
+                        <div class="form-group daily-group">
+                            <label for="miercoles">Miércoles:</label>
+                            <input type="number" id="miercoles" min="0" step="0.01" placeholder="0.00">
+                        </div>
+                        <div class="form-group daily-group">
+                            <label for="jueves">Jueves:</label>
+                            <input type="number" id="jueves" min="0" step="0.01" placeholder="0.00">
+                        </div>
+                        <div class="form-group daily-group">
+                            <label for="viernes">Viernes:</label>
+                            <input type="number" id="viernes" min="0" step="0.01" placeholder="0.00">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="precio">Precio por kilo ($):</label>
+                        <input type="number" id="precio" min="0" step="0.01" placeholder="0.00" required>
+                    </div>
+                    <button type="submit" class="btn">Registrar Cosecha</button>
+                </form>
+            </section>
+
+            <section class="summary-section">
+                <h2>Resumen de Ganancias</h2>
+                <div class="summary-cards">
+                    <div class="card">
+                        <h3>Total Kilos</h3>
+                        <p id="totalKilos">0.00 kg</p>
+                    </div>
+                    <div class="card">
+                        <h3>Desglose por día</h3>
+                        <div id="dailyBreakdown" class="daily-breakdown">
+                            <p>Lunes: <span class="lunes-kilos">0.00 kg</span></p>
+                            <p>Martes: <span class="martes-kilos">0.00 kg</span></p>
+                            <p>Miércoles: <span class="miercoles-kilos">0.00 kg</span></p>
+                            <p>Jueves: <span class="jueves-kilos">0.00 kg</span></p>
+                            <p>Viernes: <span class="viernes-kilos">0.00 kg</span></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Precio Promedio</h3>
+                        <p id="precioPromedio">$0.00</p>
+                    </div>
+                    <div class="card">
+                        <h3>Ganancias Totales</h3>
+                        <p id="gananciasTotales">$0.00</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="records-section">
+                <h2>Historial de Cosechas</h2>
+                <div class="filters">
+                    <input type="text" id="searchInput" placeholder="Buscar por caficultor...">
+                    <input type="week" id="weekFilter" placeholder="Filtrar por semana...">
+                    <button id="exportBtn" class="btn secondary">Exportar a CSV</button>
+                </div>
+                <table id="cosechasTable">
+                    <thead>
+                        <tr>
+                            <th>Semana</th>
+                            <th>Caficultor</th>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
+                            <th>Total Kilos</th>
+                            <th>Precio/kg</th>
+                            <th>Total $</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Los registros se llenarán con JavaScript -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer>
+            <p>Sistema de gestión para caficultores &copy; 2023</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
